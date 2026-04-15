@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Anton", sans-serif;
+  --color-brand-blue: #38BDF8;
+  --color-brand-dark: #000000;
+  --color-brand-light: #FFFFFF;
+  --color-brand-night: #000000;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-light text-black font-sans transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-brand-night text-white;
+  }
+}
