@@ -69,9 +69,6 @@ const Logo = ({ size = "md", className = "", layoutId }: { size?: "sm" | "md" | 
         src="/logo.png" 
         alt="Mosta Run Club Logo" 
         className={`${sizes[size]} w-auto object-contain`}
-        style={{ 
-          filter: 'url(#remove-white)'
-        }}
         referrerPolicy="no-referrer"
       />
     </motion.div>
@@ -115,22 +112,6 @@ export default function App() {
 
   return (
     <div className={`min-h-screen flex flex-col transition-colors duration-300 ${isDarkMode ? 'dark bg-black text-white' : 'bg-white text-black'}`}>
-      {/* SVG Filter to remove white background from logo.png */}
-      <svg width="0" height="0" className="absolute">
-        <filter id="remove-white" colorInterpolationFilters="sRGB">
-          <feColorMatrix 
-            type="matrix" 
-            values="1 0 0 0 0
-                    0 1 0 0 0
-                    0 0 1 0 0
-                    -3 -3 -3 9 -0.2" 
-          />
-          <feComponentTransfer>
-            <feFuncA type="discrete" tableValues="0 0 0 1" />
-          </feComponentTransfer>
-        </filter>
-      </svg>
-
       <AnimatePresence>
         {/* Splash Screen / Video & Logo Animation */}
         {!showMain && (
