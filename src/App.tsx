@@ -316,7 +316,7 @@ export default function App() {
               <select 
                 value={i18n.language}
                 onChange={(e) => i18n.changeLanguage(e.target.value)}
-                className="bg-transparent text-xs font-bold uppercase tracking-wider dark:text-white outline-none cursor-pointer hover:text-brand-blue transition-colors"
+                className="bg-transparent text-xs font-bold uppercase tracking-wider text-black dark:text-white outline-none cursor-pointer hover:text-brand-blue transition-colors"
               >
                 <option value="fr" className="dark:bg-black">FR</option>
                 <option value="ar" className="dark:bg-black">AR</option>
