@@ -203,16 +203,9 @@ export default function App() {
                         setIsRising(true);
                         setShowMain(true);
                       }}
-                      className="pointer-events-auto group relative px-10 py-4 overflow-hidden rounded-full transition-all duration-500"
+                      className="pointer-events-auto cssbuttons-io"
                     >
-                      {/* Button Background */}
-                      <div className="absolute inset-0 bg-brand-blue dark:bg-brand-blue group-hover:bg-white transition-colors duration-500" />
-                      
-                      {/* Animated Border/Glow */}
-                      <div className="absolute inset-0 border-2 border-brand-blue rounded-full group-hover:scale-105 transition-transform duration-500" />
-                      
-                      {/* Content */}
-                      <span className="relative flex items-center gap-3 text-black font-black uppercase tracking-[0.2em] text-sm md:text-base">
+                      <span className="flex items-center gap-3">
                         {t('hero.visit')}
                         <ArrowRight className={`w-5 h-5 transition-transform duration-500 group-hover:translate-x-2 ${isRTL ? 'rotate-180 group-hover:-translate-x-2' : ''}`} />
                       </span>
@@ -322,8 +315,8 @@ export default function App() {
                 {isDarkMode ? <Sun className="w-5 h-5 text-yellow-400" /> : <Moon className="w-5 h-5 text-black" />}
               </button>
 
-              <button className="bg-brand-blue text-black px-6 py-2.5 rounded-full font-black hover:bg-white border-2 border-brand-blue transition-all shadow-lg shadow-blue-100 dark:shadow-none">
-                {t('nav.join')}
+              <button className="cssbuttons-io">
+                <span>{t('nav.join')}</span>
               </button>
             </div>
           </div>
@@ -353,11 +346,13 @@ export default function App() {
                 {t('hero.desc')}
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-brand-blue text-black px-8 py-4 rounded-xl font-black flex items-center gap-2 hover:translate-y-[-2px] transition-all shadow-xl shadow-blue-200 dark:shadow-none">
-                  {t('hero.ctaStart')} <ArrowRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
+                <button className="cssbuttons-io">
+                  <span className="flex items-center gap-2">
+                    {t('hero.ctaStart')} <ArrowRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
+                  </span>
                 </button>
-                <button className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 text-black dark:text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-50 dark:hover:bg-white/10 transition-all">
-                  {t('hero.ctaSchedule')}
+                <button className="cssbuttons-io !bg-white/10 !border !border-white/10">
+                  <span>{t('hero.ctaSchedule')}</span>
                 </button>
               </div>
             </motion.div>
@@ -474,8 +469,8 @@ export default function App() {
               onChange={(e) => setEmail(e.target.value)}
               className="px-6 py-4 rounded-xl bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/20 text-black dark:text-white placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-brand-blue w-full sm:w-80"
             />
-            <button className="bg-brand-blue text-black px-8 py-4 rounded-xl font-black hover:bg-white dark:hover:bg-brand-blue/80 transition-all shadow-xl shadow-blue-200 dark:shadow-none">
-              {t('membership.cta')}
+            <button className="cssbuttons-io">
+              <span>{t('membership.cta')}</span>
             </button>
           </div>
         </div>

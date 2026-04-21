@@ -20,4 +20,64 @@
   .dark body {
     @apply bg-brand-night text-white;
   }
+
+  /* Modern Animated Buttons */
+  .cssbuttons-io {
+    position: relative;
+    font-family: inherit;
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    background: white;
+    color: black;
+    overflow: hidden;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+
+  .dark .cssbuttons-io {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .cssbuttons-io span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+  }
+
+  .cssbuttons-io::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    background: #00A3FF;
+    z-index: 0;
+    transition: transform 0.5s cubic-bezier(0.3, 1, 0.8, 1);
+    transform: skewX(30deg) translateX(-120%);
+  }
+
+  .cssbuttons-io:hover {
+    color: white !important;
+  }
+
+  .cssbuttons-io:hover::before {
+    transform: skewX(30deg) translateX(-20%);
+  }
+
+  .cssbuttons-io:active {
+    transform: scale(0.95);
+  }
 }
