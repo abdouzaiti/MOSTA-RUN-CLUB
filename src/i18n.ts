@@ -43,12 +43,12 @@ const resources = {
           },
           long: {
             title: 'Session de Course Longue',
-            location: 'Front de Mer',
+            location: 'Salamandre',
             date: 'Vendredi'
           },
           strength: {
             title: 'Force et Conditionnement',
-            location: 'Parc de Mosta',
+            location: 'Complexe Raid Farradj',
             date: 'Dimanche'
           }
         }
@@ -101,12 +101,12 @@ const resources = {
           },
           long: {
             title: 'حصة جري طويل',
-            location: 'الواجهة البحرية',
+            location: 'سلاماندر',
             date: 'الجمعة'
           },
           strength: {
             title: 'القوة والتحمل',
-            location: 'حديقة مستغانم',
+            location: 'مركب رائد فراج',
             date: 'الأحد'
           }
         }
@@ -159,12 +159,12 @@ const resources = {
           },
           long: {
             title: 'Long Run Session',
-            location: 'Seafront',
+            location: 'Salamandre',
             date: 'Friday'
           },
           strength: {
             title: 'Strength & Conditioning',
-            location: 'Mosta Park',
+            location: 'Complexe Raid Farradj',
             date: 'Sunday'
           }
         }

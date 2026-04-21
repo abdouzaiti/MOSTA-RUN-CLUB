@@ -37,8 +37,8 @@ const UPCOMING_RUNS: RunEvent[] = [
     id: '2',
     title: 'Long Run Session',
     date: 'Friday',
-    time: '18:00',
-    location: 'Wied il-Għasel',
+    time: '07:30',
+    location: 'Salamandre',
     distance: '10km+',
     difficulty: 'Advanced'
   },
@@ -46,8 +46,8 @@ const UPCOMING_RUNS: RunEvent[] = [
     id: '3',
     title: 'Strength & Conditioning',
     date: 'Sunday',
-    time: '08:00',
-    location: 'Mosta Park & Ride',
+    time: '18:00',
+    location: 'Complexe Raid Farradj',
     distance: 'N/A',
     difficulty: 'Beginner'
   }
