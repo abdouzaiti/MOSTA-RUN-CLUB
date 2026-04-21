@@ -235,7 +235,7 @@ export default function App() {
             {!videoEnded && (
               <button 
                 onClick={() => setVideoEnded(true)}
-                className="absolute bottom-10 right-10 z-30 text-black/30 dark:text-white/30 hover:text-brand-blue text-xs font-bold uppercase tracking-widest transition-colors"
+                className="absolute bottom-10 right-10 z-30 text-black/60 dark:text-white/30 hover:text-brand-blue text-xs font-bold uppercase tracking-widest transition-colors"
               >
                 Skip Intro
               </button>
@@ -430,9 +430,9 @@ export default function App() {
                     <Calendar className="w-6 h-6" />
                   </div>
                   <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${
-                    run.difficulty === 'Beginner' ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400' :
-                    run.difficulty === 'Intermediate' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400' :
-                    'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400'
+                    run.difficulty === 'Beginner' ? 'bg-green-100 dark:bg-green-900/30 text-green-900 dark:text-green-400' :
+                    run.difficulty === 'Intermediate' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-900 dark:text-blue-400' :
+                    'bg-red-100 dark:bg-red-900/30 text-red-900 dark:text-red-400'
                   }`}>
                     {run.difficulty === 'Beginner' ? t('schedule.difficulty.beginner') : 
                      run.difficulty === 'Intermediate' ? t('schedule.difficulty.intermediate') : 
@@ -498,7 +498,7 @@ export default function App() {
               <div className="flex items-center gap-4 mb-8">
                 <Logo size="sm" />
               </div>
-              <p className="text-black dark:text-white/70 max-w-sm mb-8">
+              <p className="text-black/90 dark:text-white/70 max-w-sm mb-8">
                 {t('footer.desc')}
               </p>
               <div className="flex gap-4">
@@ -522,7 +522,7 @@ export default function App() {
             </div>
             <div>
               <h4 className="font-black text-brand-blue mb-6 uppercase text-xs tracking-widest">{t('footer.links')}</h4>
-              <ul className="space-y-4 text-sm text-black dark:text-white/60">
+              <ul className="space-y-4 text-sm text-black/80 dark:text-white/60">
                 <li><a href="#" className="hover:text-brand-blue transition-colors">{t('nav.about')}</a></li>
                 <li><a href="#" className="hover:text-brand-blue transition-colors">{t('nav.schedule')}</a></li>
                 <li><a href="#" className="hover:text-brand-blue transition-colors">{t('nav.membership')}</a></li>
@@ -531,7 +531,7 @@ export default function App() {
             </div>
             <div>
               <h4 className="font-black text-brand-blue mb-6 uppercase text-xs tracking-widest">{t('footer.contact')}</h4>
-              <ul className="space-y-4 text-sm text-black/60 dark:text-white/60">
+              <ul className="space-y-4 text-sm text-black/70 dark:text-white/60">
                 <li><a href="mailto:hello@mostarunclub.com" className="hover:text-brand-blue transition-colors">hello@mostarunclub.com</a></li>
                 <li>Mosta, Algeria</li>
                 <li><a href="tel:+213559391211" className="hover:text-brand-blue transition-colors font-bold">+213 559 39 12 11</a></li>
@@ -539,8 +539,8 @@ export default function App() {
             </div>
           </div>
           <div className="pt-8 border-t border-gray-100 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-black/50 dark:text-gray-400">{t('footer.rights')}</p>
-            <div className="flex gap-8 text-xs text-black/50 dark:text-gray-400">
+            <p className="text-xs text-black/70 dark:text-gray-400">{t('footer.rights')}</p>
+            <div className="flex gap-8 text-xs text-black/70 dark:text-gray-400">
               <a href="#" className="hover:text-brand-blue">Privacy Policy</a>
               <a href="#" className="hover:text-brand-blue">Terms of Service</a>
             </div>
