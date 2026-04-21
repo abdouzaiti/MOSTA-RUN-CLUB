@@ -81,7 +81,8 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showMain, setShowMain] = useState(false);
-  const [currentView, setCurrentView] = useState<'home' | 'story'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'albums' | 'gallery'>('home');
+  const [selectedAlbum, setSelectedAlbum] = useState<'bejaia' | 'alger' | 'backyard' | null>(null);
   const [isRising, setIsRising] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
   const [logoRisen, setLogoRisen] = useState(false);
@@ -112,7 +113,14 @@ export default function App() {
     }
   };
 
-  if (currentView === 'story') {
+  // --- Album Menu View ---
+  if (currentView === 'albums') {
+    const albumsList = [
+      { id: 'bejaia' as const, title: t('story.albums.bejaia'), cover: '/bejaia/bejaia1.jpg' },
+      { id: 'alger' as const, title: t('story.albums.alger'), cover: '/alger/alger1.jpg' },
+      { id: 'backyard' as const, title: t('story.albums.backyard'), cover: '/backyard/backyard1.jpg' }
+    ];
+
     return (
       <div className={`min-h-screen flex flex-col transition-colors duration-300 ${isDarkMode ? 'dark bg-black text-white' : 'bg-white text-black'}`}>
         <nav className={`fixed w-full z-50 transition-all duration-300 ${isDarkMode ? 'bg-black/60 border-b border-white/10' : 'bg-white/60 border-b border-white/20 shadow-sm'} backdrop-blur-xl`}>
@@ -131,88 +139,96 @@ export default function App() {
         </nav>
 
         <main className="flex-grow pt-32 pb-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <p className={`${isDarkMode ? 'text-gray-400' : 'text-black/70'} text-lg mb-16 max-w-3xl mx-auto`}>
+              {t('story.desc')}
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {albumsList.map((album) => (
+                <div key={album.id} className={`group flex flex-col rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2 ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white border border-black/5'}`}>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <img 
+                      src={album.cover} 
+                      alt={album.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      onError={(e) => { e.currentTarget.src = `https://picsum.photos/seed/${album.id}cover/800/600`; }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                  </div>
+                  <div className="p-8 flex flex-col flex-grow items-center justify-between text-center relative z-10 bg-inherit -mt-4">
+                    <h3 className={`text-2xl font-black mb-6 ${isDarkMode ? 'text-white' : 'text-black'}`}>{album.title}</h3>
+                    <button 
+                      onClick={() => {
+                        setSelectedAlbum(album.id);
+                        setCurrentView('gallery');
+                      }}
+                      className="cssbuttons-io cssbuttons-io--outline w-full justify-center mt-auto"
+                    >
+                      <span>{t('story.viewAlbum')}</span>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  // --- Gallery View ---
+  if (currentView === 'gallery' && selectedAlbum) {
+    const title = t(`story.albums.${selectedAlbum}`);
+    // Simulate image array for the selected album
+    const imageCount = selectedAlbum === 'backyard' ? 6 : selectedAlbum === 'bejaia' ? 5 : 4;
+    const images = Array.from({ length: imageCount }, (_, i) => `/${selectedAlbum}/${selectedAlbum}${i + 1}.jpg`);
+
+    return (
+      <div className={`min-h-screen flex flex-col transition-colors duration-300 ${isDarkMode ? 'dark bg-black text-white' : 'bg-white text-black'}`}>
+        <nav className={`fixed w-full z-50 transition-all duration-300 ${isDarkMode ? 'bg-black/60 border-b border-white/10' : 'bg-white/60 border-b border-white/20 shadow-sm'} backdrop-blur-xl`}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center h-20 gap-4">
+              <button 
+                onClick={() => {
+                  setSelectedAlbum(null);
+                  setCurrentView('albums');
+                }} 
+                className="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-colors"
+                aria-label="Back to Albums"
+              >
+                <ArrowLeft className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
+              </button>
+              <h1 className={`text-xl font-black ${isDarkMode ? 'text-white' : 'text-black'}`}>{title}</h1>
+            </div>
+          </div>
+        </nav>
+
+        <main className="flex-grow pt-32 pb-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <p className={`${isDarkMode ? 'text-gray-400' : 'text-black/70'} text-lg`}>{t('story.desc')}</p>
+            <div className={isRTL ? "text-right" : "text-left"}>
+              <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
+                {images.map((src, i) => (
+                  <div key={i} className={`relative rounded-2xl overflow-hidden break-inside-avoid shadow-lg group ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white border border-black/5'}`}>
+                    <img 
+                      src={src} 
+                      alt={`${title} pic ${i + 1}`} 
+                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                      onError={(e) => { 
+                        // Fallback heights for masonry layout
+                        const heights = [600, 750, 500, 800, 650, 550];
+                        e.currentTarget.src = `https://picsum.photos/seed/${selectedAlbum}${i}/600/${heights[i % heights.length]}`; 
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-brand-blue/0 group-hover:bg-brand-blue/20 transition-colors duration-300" />
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Album Masonry Galleries */}
-            <div className="space-y-32">
-              
-              {/* Bejaia Album */}
-              <div className={isRTL ? "text-right" : "text-left"}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue">
-                    <span className="font-black text-xl">1</span>
-                  </div>
-                  <h3 className={`text-2xl font-black ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    {t('story.albums.bejaia')}
-                  </h3>
-                </div>
-                <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <div key={`bejaia-${i}`} className={`relative rounded-2xl overflow-hidden break-inside-avoid shadow-lg group ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white border border-black/5'}`}>
-                      <img 
-                        src={`https://picsum.photos/seed/bejaia${i}/600/${600 + i * 50}`} 
-                        alt={`Bejaia ${i}`} 
-                        className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-brand-blue/0 group-hover:bg-brand-blue/20 transition-colors duration-300" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Alger Album */}
-              <div className={isRTL ? "text-right" : "text-left"}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue">
-                    <span className="font-black text-xl">2</span>
-                  </div>
-                  <h3 className={`text-2xl font-black ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    {t('story.albums.alger')}
-                  </h3>
-                </div>
-                <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={`alger-${i}`} className={`relative rounded-2xl overflow-hidden break-inside-avoid shadow-lg group ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white border border-black/5'}`}>
-                      <img 
-                        src={`https://picsum.photos/seed/alger${i}/600/${700 - i * 30}`} 
-                        alt={`Alger ${i}`} 
-                        className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-brand-blue/0 group-hover:bg-brand-blue/20 transition-colors duration-300" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Backyard Ultra Album */}
-              <div className={isRTL ? "text-right" : "text-left"}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue">
-                    <span className="font-black text-xl">3</span>
-                  </div>
-                  <h3 className={`text-2xl font-black ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    {t('story.albums.backyard')}
-                  </h3>
-                </div>
-                <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
-                  {[1, 2, 3, 4, 5, 6].map((i) => (
-                    <div key={`backyard-${i}`} className={`relative rounded-2xl overflow-hidden break-inside-avoid shadow-lg group ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white border border-black/5'}`}>
-                      <img 
-                        src={`https://picsum.photos/seed/backyard${i}/600/${500 + (i % 3) * 150}`} 
-                        alt={`Backyard Ultra ${i}`} 
-                        className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-brand-blue/0 group-hover:bg-brand-blue/20 transition-colors duration-300" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-            </div>
           </div>
         </main>
       </div>
@@ -578,7 +594,7 @@ export default function App() {
             />
           </div>
 
-          <button onClick={() => setCurrentView('story')} className="cssbuttons-io hover:scale-105 transition-transform duration-300">
+          <button onClick={() => setCurrentView('albums')} className="cssbuttons-io hover:scale-105 transition-transform duration-300">
             <span>{t('story.trigger')}</span>
           </button>
         </div>
