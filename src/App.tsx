@@ -219,7 +219,7 @@ export default function App() {
             {!videoEnded && (
               <button 
                 onClick={() => setVideoEnded(true)}
-                className="absolute bottom-10 right-10 z-30 text-black/60 dark:text-white/30 hover:text-brand-blue text-xs font-bold uppercase tracking-widest transition-colors"
+                className="absolute bottom-10 right-10 z-30 text-white/50 hover:text-brand-blue text-xs font-bold uppercase tracking-widest transition-colors"
               >
                 Skip Intro
               </button>
@@ -256,13 +256,13 @@ export default function App() {
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 opacity: 1,
-                filter: 'blur(4px)'
+                filter: 'blur(2px)'
               }}
             />
 
             <div className="relative z-10">
               {/* Navigation */}
-          <nav className="sticky top-0 z-50 bg-white/10 dark:bg-black/10 backdrop-blur-md border-b border-white/10 dark:border-white/5">
+              <nav className="sticky top-0 z-50 bg-white/60 dark:bg-black/40 backdrop-blur-xl border-b border-black/5 dark:border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center gap-3">
@@ -287,8 +287,8 @@ export default function App() {
               >
                 {isDarkMode ? <Sun className="w-6 h-6 text-yellow-400" /> : <Moon className="w-6 h-6 text-black" />}
               </button>
-              <button className="bg-brand-blue text-black px-4 py-2 rounded-full font-black text-xs hover:bg-white border-2 border-brand-blue transition-all">
-                {t('nav.join')}
+              <button className="cssbuttons-io cssbuttons-io--sm">
+                <span>{t('nav.join')}</span>
               </button>
             </div>
 
@@ -332,7 +332,7 @@ export default function App() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-brand-blue/20 text-brand-blue text-xs font-bold uppercase tracking-wider mb-6">
+              <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full ${isDarkMode ? 'bg-brand-blue/20' : 'bg-brand-blue/10'} text-brand-blue text-xs font-bold uppercase tracking-wider mb-6`}>
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
@@ -351,7 +351,7 @@ export default function App() {
                     {t('hero.ctaStart')} <ArrowRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
                   </span>
                 </button>
-                <button className="cssbuttons-io !bg-white/10 !border !border-white/10">
+                <button className="cssbuttons-io cssbuttons-io--outline">
                   <span>{t('hero.ctaSchedule')}</span>
                 </button>
               </div>
@@ -371,16 +371,16 @@ export default function App() {
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-white dark:bg-black p-6 rounded-2xl shadow-xl dark:shadow-2xl dark:border dark:border-white/10 max-w-[200px]">
+              <div className={`absolute -bottom-6 -left-6 ${isDarkMode ? 'bg-gray-900 border border-white/10' : 'bg-white border border-black/5'} p-6 rounded-2xl shadow-xl max-w-[200px]`}>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 bg-blue-100 dark:bg-brand-blue/20 rounded-full flex items-center justify-center">
                     <Trophy className="text-brand-blue w-5 h-5" />
                   </div>
-                  <div className="text-xs font-bold text-black/50 dark:text-gray-400 uppercase">Weekly Goal</div>
+                  <div className={`text-xs font-bold ${isDarkMode ? 'text-gray-400' : 'text-black/50'} uppercase`}>Weekly Goal</div>
                 </div>
-                <div className="text-2xl font-black text-black dark:text-white">2,500 KM</div>
-                <div className="w-full bg-gray-100 dark:bg-white/10 h-2 rounded-full mt-3">
-                  <div className="bg-brand-blue h-full rounded-full w-[75%]" />
+                <div className={`text-2xl font-black ${isDarkMode ? 'text-white' : 'text-black'}`}>2,500 KM</div>
+                <div className={`w-full ${isDarkMode ? 'bg-white/10' : 'bg-gray-100'} h-2 rounded-full mt-3`}>
+                  <div className="bg-brand-blue h-full rounded-full w-[75%] transition-all" />
                 </div>
               </div>
             </motion.div>
@@ -393,8 +393,8 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className={isRTL ? 'text-right' : 'text-left'}>
-              <h2 className="text-4xl font-black text-black dark:text-white mb-4">{t('schedule.title')}</h2>
-              <p className="text-black dark:text-gray-400 max-w-md">{t('schedule.desc')}</p>
+              <h2 className={`text-4xl font-black ${isDarkMode ? 'text-white' : 'text-black'} mb-4`}>{t('schedule.title')}</h2>
+              <p className={`${isDarkMode ? 'text-gray-400' : 'text-black/70'} max-w-md`}>{t('schedule.desc')}</p>
             </div>
             <button className="text-brand-blue font-bold flex items-center gap-2 hover:gap-3 transition-all">
               {t('schedule.fullCalendar')} <ChevronRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
@@ -409,10 +409,10 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group bg-white dark:bg-white/5 p-8 rounded-3xl border border-gray-100 dark:border-transparent hover:border-brand-blue/20 dark:hover:border-brand-blue/40 hover:bg-white dark:hover:bg-white/10 hover:shadow-2xl transition-all cursor-pointer"
+                className={`group ${isDarkMode ? 'bg-white/5 hover:bg-white/10 border-white/5 hover:border-brand-blue/40' : 'bg-white/80 hover:bg-white border-black/5 hover:border-brand-blue/20'} p-8 rounded-3xl border hover:shadow-2xl transition-all cursor-pointer backdrop-blur-sm`}
               >
                 <div className="flex justify-between items-start mb-6">
-                  <div className="w-12 h-12 bg-white dark:bg-white/10 rounded-2xl flex items-center justify-center shadow-sm group-hover:bg-brand-blue group-hover:text-black transition-colors">
+                  <div className={`w-12 h-12 ${isDarkMode ? 'bg-white/10' : 'bg-brand-blue/10'} rounded-2xl flex items-center justify-center group-hover:bg-brand-blue group-hover:text-white transition-colors`}>
                     <Calendar className="w-6 h-6" />
                   </div>
                   <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${
@@ -425,12 +425,12 @@ export default function App() {
                      t('schedule.difficulty.advanced')}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-black dark:text-white mb-4 group-hover:text-brand-blue transition-colors">
+                <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'} mb-4 group-hover:text-brand-blue transition-colors`}>
                   {idx === 0 ? t('schedule.runs.interval.title') : 
                    idx === 1 ? t('schedule.runs.long.title') : 
                    t('schedule.runs.strength.title')}
                 </h3>
-                <div className="space-y-3 text-sm text-black dark:text-gray-400">
+                <div className={`space-y-3 text-sm ${isDarkMode ? 'text-gray-400' : 'text-black/70'}`}>
                   <div className="flex items-center gap-3">
                     <Clock className="w-4 h-4 text-brand-blue" />
                     {idx === 0 ? t('schedule.runs.interval.date') : 
@@ -456,7 +456,7 @@ export default function App() {
 
       {/* Membership / CTA */}
       <section id="membership" className="py-32 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10 bg-white/40 dark:bg-transparent backdrop-blur-sm py-16 rounded-[3rem] shadow-2xl border border-white/20">
+        <div className={`max-w-4xl mx-auto px-4 text-center relative z-10 py-16 rounded-[2rem] ${isDarkMode ? 'bg-white/5 border border-white/10 backdrop-blur-md' : 'bg-white/60 border border-black/5 backdrop-blur-md shadow-xl'}`}>
           <h2 className={`text-5xl md:text-6xl font-black ${isDarkMode ? 'text-white' : 'text-black'} mb-8`}>{t('membership.title')}</h2>
           <p className={`${isDarkMode ? 'text-gray-400' : 'text-black'} text-xl mb-12 leading-relaxed`}>
             {t('membership.desc')}
@@ -467,7 +467,7 @@ export default function App() {
               placeholder={t('membership.placeholder')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="px-6 py-4 rounded-xl bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/20 text-black dark:text-white placeholder:text-black/50 focus:outline-none focus:ring-2 focus:ring-brand-blue w-full sm:w-80"
+              className={`px-6 py-4 rounded-xl ${isDarkMode ? 'bg-white/10 border-white/20 text-white placeholder:text-white/40' : 'bg-black/5 border-black/10 text-black placeholder:text-black/40'} border focus:outline-none focus:ring-2 focus:ring-brand-blue w-full sm:w-80 transition-colors`}
             />
             <button className="cssbuttons-io">
               <span>{t('membership.cta')}</span>
@@ -477,7 +477,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-20 border-t border-gray-100 dark:border-white/5 bg-white/30 dark:bg-transparent backdrop-blur-md">
+      <footer className={`py-20 border-t ${isDarkMode ? 'border-white/10 bg-black/20' : 'border-black/5 bg-white/40'} backdrop-blur-md`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 ${isRTL ? 'text-center md:text-right' : 'text-center md:text-left'}`}>
             <div className={`col-span-1 md:col-span-2 flex flex-col items-center ${isRTL ? 'md:items-end' : 'md:items-start'}`}>
@@ -492,7 +492,7 @@ export default function App() {
                   href="https://www.instagram.com/mostarunclub/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-gray-50 dark:bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-blue hover:text-black transition-all"
+                  className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-white/10 text-gray-400' : 'bg-black/5 text-gray-500'} flex items-center justify-center hover:bg-brand-blue hover:text-white transition-all`}
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
@@ -500,7 +500,7 @@ export default function App() {
                   href="https://www.facebook.com/profile.php?id=100054214491761&locale=fr_FR" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-gray-50 dark:bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand-blue hover:text-black transition-all"
+                  className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-white/10 text-gray-400' : 'bg-black/5 text-gray-500'} flex items-center justify-center hover:bg-brand-blue hover:text-white transition-all`}
                 >
                   <Facebook className="w-5 h-5" />
                 </a>
@@ -524,9 +524,9 @@ export default function App() {
               </ul>
             </div>
           </div>
-          <div className="pt-8 border-t border-gray-100 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-black/70 dark:text-gray-400">{t('footer.rights')}</p>
-            <div className="flex gap-8 text-xs text-black/70 dark:text-gray-400">
+          <div className={`pt-8 border-t ${isDarkMode ? 'border-white/10' : 'border-black/5'} flex flex-col md:flex-row justify-between items-center gap-4`}>
+            <p className={`text-xs ${isDarkMode ? 'text-gray-500' : 'text-black/50'}`}>{t('footer.rights')}</p>
+            <div className={`flex gap-8 text-xs ${isDarkMode ? 'text-gray-500' : 'text-black/50'}`}>
               <a href="#" className="hover:text-brand-blue">Privacy Policy</a>
               <a href="#" className="hover:text-brand-blue">Terms of Service</a>
             </div>
