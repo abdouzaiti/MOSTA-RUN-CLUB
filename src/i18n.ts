@@ -57,6 +57,7 @@ const resources = {
       story: {
         title: 'Notre Histoire',
         desc: 'Découvrez les moments forts de nos aventures, du bitume de Béjaïa aux sentiers du Backyard Ultra.',
+        trigger: 'Découvrir notre histoire',
         albums: {
           bejaia: 'Semi Marathon Ville de Béjaïa',
           alger: "Semi Marathon d'Alger",
@@ -125,6 +126,7 @@ const resources = {
       story: {
         title: 'قصتنا',
         desc: 'اكتشف أبرز لحظات مغامراتنا، من شوارع بجاية إلى مسارات باك يارد ألترا.',
+        trigger: 'اكتشف قصتنا',
         albums: {
           bejaia: 'نصف ماراثون مدينة بجاية',
           alger: 'نصف ماراثون الجزائر',
@@ -193,6 +195,7 @@ const resources = {
       story: {
         title: 'Our Story',
         desc: 'Discover the highlights of our journey, from the streets of Bejaia to the trails of the Backyard Ultra.',
+        trigger: 'Discover our story',
         albums: {
           bejaia: 'Bejaia City Half Marathon',
           alger: 'Algiers Half Marathon',
