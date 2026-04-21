@@ -182,8 +182,8 @@ export default function App() {
   // --- Gallery View ---
   if (currentView === 'gallery' && selectedAlbum) {
     const title = t(`story.albums.${selectedAlbum}`);
-    // Simulate image array for the selected album
-    const imageCount = selectedAlbum === 'backyard' ? 6 : selectedAlbum === 'bejaia' ? 5 : 4;
+    // Real image counts provided by user
+    const imageCount = selectedAlbum === 'backyard' ? 14 : selectedAlbum === 'bejaia' ? 6 : 11;
     const images = Array.from({ length: imageCount }, (_, i) => `/${selectedAlbum}/${selectedAlbum}${i + 1}.jpg`);
 
     return (
