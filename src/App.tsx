@@ -175,27 +175,18 @@ export default function App() {
             </motion.div>
 
             <div className="relative z-20 w-full h-full flex flex-col items-center justify-center">
+              {/* Trigger button appearance after video transitions */}
               <motion.div
-                initial={{ opacity: 0, scale: 1 }}
-                animate={{ 
-                  opacity: videoEnded ? 1 : 0,
-                  scale: videoEnded ? (logoRisen ? 0.6 : 1) : 1,
-                  y: logoRisen ? "-40vh" : "0vh"
-                }}
-                transition={{ 
-                  duration: 2.5, 
-                  ease: "easeInOut",
-                  opacity: { duration: 2 }
-                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: videoEnded ? 1 : 0 }}
+                transition={{ duration: 0.1 }}
                 onAnimationComplete={() => {
                   if (videoEnded && !logoRisen) {
-                    // Wait for the white background to be fully visible before rising
-                    setTimeout(() => setLogoRisen(true), 1500);
+                    // Start the button reveal timer when video ends
+                    setTimeout(() => setLogoRisen(true), 2500);
                   }
                 }}
-              >
-                <Logo size="lg" layoutId="main-logo" />
-              </motion.div>
+              />
 
               {/* Visit Website Trigger */}
               <AnimatePresence>
