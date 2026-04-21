@@ -12,7 +12,7 @@ const resources = {
         join: 'Rejoindre'
       },
       hero: {
-        badge: 'Prochaine course : Mardi 18:30',
+        badge: 'Prochaine course : Mardi 18:00',
         title: 'Courez au cœur de ',
         titleAccent: 'Mosta.',
         desc: 'Rejoignez la communauté de coureurs la plus dynamique de Mostaganem. Que vous cherchiez un record personnel ou que vous débutiez, nous courons ensemble.',
@@ -38,7 +38,7 @@ const resources = {
         runs: {
           interval: {
             title: 'Entraînement par Intervalles',
-            location: 'Place de la Mairie',
+            location: 'Complexe Raid Farradj',
             date: 'Mardi'
           },
           long: {
@@ -76,7 +76,7 @@ const resources = {
         join: 'انضم إلينا'
       },
       hero: {
-        badge: 'الجري القادم: الثلاثاء 18:30',
+        badge: 'الجري القادم: الثلاثاء 18:00',
         title: 'اجرِ في قلب ',
         titleAccent: 'مستغانم.',
         desc: 'انضم إلى أكثر مجتمع عداءين حيوية في مستغانم. سواء كنت تبحث عن رقم قياسي جديد أو كنت مبتدئاً، نحن نجري معاً.',
@@ -96,7 +96,7 @@ const resources = {
         runs: {
           interval: {
             title: 'تدريب فترات',
-            location: 'ساحة البلدية',
+            location: 'مركب رائد فراج',
             date: 'الثلاثاء'
           },
           long: {
@@ -134,7 +134,7 @@ const resources = {
         join: 'Join Now'
       },
       hero: {
-        badge: 'Next Run: Tuesday 18:30',
+        badge: 'Next Run: Tuesday 18:00',
         title: 'Run the Heart of ',
         titleAccent: 'Mosta.',
         desc: 'Join the most vibrant community of runners in Mosta. Whether you\'re chasing a PB or just starting out, we run together.',
@@ -154,7 +154,7 @@ const resources = {
         runs: {
           interval: {
             title: 'Interval Training',
-            location: 'City Square',
+            location: 'Complexe Raid Farradj',
             date: 'Tuesday'
           },
           long: {

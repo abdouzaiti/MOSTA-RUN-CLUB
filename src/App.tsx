@@ -28,8 +28,8 @@ const UPCOMING_RUNS: RunEvent[] = [
     id: '1',
     title: 'Interval Training',
     date: 'Tuesday',
-    time: '18:30',
-    location: 'Mosta Dome Square',
+    time: '18:00',
+    location: 'Complexe Raid Farradj',
     distance: 'Varies',
     difficulty: 'Intermediate'
   },
