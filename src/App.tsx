@@ -471,16 +471,21 @@ export default function App() {
               <p className={`text-lg ${isDarkMode ? 'text-gray-400' : 'text-black'} mb-10 max-w-lg leading-relaxed`}>
                 {t('hero.desc')}
               </p>
-              <div className="flex flex-wrap gap-4">
-                <button className="cssbuttons-io">
-                  <span className="flex items-center gap-2">
-                    {t('hero.ctaStart')} <ArrowRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
-                  </span>
-                </button>
-                <button className="cssbuttons-io cssbuttons-io--outline">
-                  <span>{t('hero.ctaSchedule')}</span>
-                </button>
-              </div>
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                  className="flex flex-wrap gap-4"
+                >
+                  <button className="cssbuttons-io">
+                    <span className="flex items-center gap-2">
+                      {t('hero.ctaStart')} <ArrowRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
+                    </span>
+                  </button>
+                  <button className="cssbuttons-io cssbuttons-io--outline">
+                    <span>{t('hero.ctaSchedule')}</span>
+                  </button>
+                </motion.div>
             </motion.div>
             
             <motion.div 
@@ -582,7 +587,13 @@ export default function App() {
 
       {/* Our Story Cover Area */}
       <section id="our-story" className={`py-32 ${isDarkMode ? 'bg-black/20' : 'bg-gray-50/50'} border-y ${isDarkMode ? 'border-white/5' : 'border-black/5'}`}>
-        <div className="max-w-xl mx-auto px-4 flex flex-col items-center text-center">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-xl mx-auto px-4 flex flex-col items-center text-center"
+        >
           <h2 className={`text-4xl md:text-5xl font-black ${isDarkMode ? 'text-white' : 'text-black'} mb-12 tracking-widest uppercase`}>MOSTA RUN CLUB</h2>
           
           <div className={`relative w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl mb-12 ${isDarkMode ? 'border border-white/10' : 'border border-black/5'}`}>
@@ -597,7 +608,7 @@ export default function App() {
           <button onClick={() => setCurrentView('albums')} className="cssbuttons-io hover:scale-105 transition-transform duration-300">
             <span>{t('story.trigger')}</span>
           </button>
-        </div>
+        </motion.div>
       </section>
 
       {/* Membership / CTA */}
