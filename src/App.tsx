@@ -309,9 +309,9 @@ export default function App() {
             </div>
 
             <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-wider">
-              <a href="#about" className="text-black hover:text-brand-blue transition-colors dark:text-gray-300 dark:hover:text-brand-blue">{t('nav.about')}</a>
-              <a href="#schedule" className="text-black hover:text-brand-blue transition-colors dark:text-gray-300 dark:hover:text-brand-blue">{t('nav.schedule')}</a>
-              <a href="#membership" className="text-black hover:text-brand-blue transition-colors dark:text-gray-300 dark:hover:text-brand-blue">{t('nav.membership')}</a>
+              <a href="#about" className={`${isDarkMode ? 'text-gray-300' : 'text-black'} hover:text-brand-blue transition-colors dark:hover:text-brand-blue`}>{t('nav.about')}</a>
+              <a href="#schedule" className={`${isDarkMode ? 'text-gray-300' : 'text-black'} hover:text-brand-blue transition-colors dark:hover:text-brand-blue`}>{t('nav.schedule')}</a>
+              <a href="#membership" className={`${isDarkMode ? 'text-gray-300' : 'text-black'} hover:text-brand-blue transition-colors dark:hover:text-brand-blue`}>{t('nav.membership')}</a>
               
               <select 
                 value={i18n.language}
@@ -355,10 +355,10 @@ export default function App() {
                 </span>
                 {t('hero.badge')}
               </div>
-              <h1 className="text-6xl md:text-7xl font-black text-black dark:text-white leading-tight mb-6">
+              <h1 className={`text-6xl md:text-7xl font-black ${isDarkMode ? 'text-white' : 'text-black'} leading-tight mb-6`}>
                 {t('hero.title')}<span className="text-brand-blue">{t('hero.titleAccent')}</span>
               </h1>
-              <p className="text-lg text-black dark:text-gray-400 mb-10 max-w-lg leading-relaxed">
+              <p className={`text-lg ${isDarkMode ? 'text-gray-400' : 'text-black'} mb-10 max-w-lg leading-relaxed`}>
                 {t('hero.desc')}
               </p>
               <div className="flex flex-wrap gap-4">
@@ -430,9 +430,9 @@ export default function App() {
                     <Calendar className="w-6 h-6" />
                   </div>
                   <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${
-                    run.difficulty === 'Beginner' ? 'bg-green-100 dark:bg-green-900/30 text-green-900 dark:text-green-400' :
-                    run.difficulty === 'Intermediate' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-900 dark:text-blue-400' :
-                    'bg-red-100 dark:bg-red-900/30 text-red-900 dark:text-red-400'
+                    run.difficulty === 'Beginner' ? `bg-green-100 dark:bg-green-900/30 ${isDarkMode ? 'text-green-400' : 'text-green-900'}` :
+                    run.difficulty === 'Intermediate' ? `bg-blue-100 dark:bg-blue-900/30 ${isDarkMode ? 'text-blue-400' : 'text-blue-900'}` :
+                    `bg-red-100 dark:bg-red-900/30 ${isDarkMode ? 'text-red-400' : 'text-red-900'}`
                   }`}>
                     {run.difficulty === 'Beginner' ? t('schedule.difficulty.beginner') : 
                      run.difficulty === 'Intermediate' ? t('schedule.difficulty.intermediate') : 
@@ -471,8 +471,8 @@ export default function App() {
       {/* Membership / CTA */}
       <section id="membership" className="py-32 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10 bg-white/40 dark:bg-transparent backdrop-blur-sm py-16 rounded-[3rem] shadow-2xl border border-white/20">
-          <h2 className="text-5xl md:text-6xl font-black text-black dark:text-white mb-8">{t('membership.title')}</h2>
-          <p className="text-black dark:text-gray-400 text-xl mb-12 leading-relaxed">
+          <h2 className={`text-5xl md:text-6xl font-black ${isDarkMode ? 'text-white' : 'text-black'} mb-8`}>{t('membership.title')}</h2>
+          <p className={`${isDarkMode ? 'text-gray-400' : 'text-black'} text-xl mb-12 leading-relaxed`}>
             {t('membership.desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -498,7 +498,7 @@ export default function App() {
               <div className="flex items-center gap-4 mb-8">
                 <Logo size="sm" />
               </div>
-              <p className="text-black/90 dark:text-white/70 max-w-sm mb-8">
+              <p className={`${isDarkMode ? 'text-white/70' : 'text-black/90'} max-w-sm mb-8`}>
                 {t('footer.desc')}
               </p>
               <div className="flex gap-4">
@@ -522,7 +522,7 @@ export default function App() {
             </div>
             <div>
               <h4 className="font-black text-brand-blue mb-6 uppercase text-xs tracking-widest">{t('footer.links')}</h4>
-              <ul className="space-y-4 text-sm text-black/80 dark:text-white/60">
+              <ul className={`space-y-4 text-sm ${isDarkMode ? 'text-white/60' : 'text-black/80'}`}>
                 <li><a href="#" className="hover:text-brand-blue transition-colors">{t('nav.about')}</a></li>
                 <li><a href="#" className="hover:text-brand-blue transition-colors">{t('nav.schedule')}</a></li>
                 <li><a href="#" className="hover:text-brand-blue transition-colors">{t('nav.membership')}</a></li>
@@ -531,7 +531,7 @@ export default function App() {
             </div>
             <div>
               <h4 className="font-black text-brand-blue mb-6 uppercase text-xs tracking-widest">{t('footer.contact')}</h4>
-              <ul className="space-y-4 text-sm text-black/70 dark:text-white/60">
+              <ul className={`space-y-4 text-sm ${isDarkMode ? 'text-white/60' : 'text-black/70'}`}>
                 <li><a href="mailto:hello@mostarunclub.com" className="hover:text-brand-blue transition-colors">hello@mostarunclub.com</a></li>
                 <li>Mosta, Algeria</li>
                 <li><a href="tel:+213559391211" className="hover:text-brand-blue transition-colors font-bold">+213 559 39 12 11</a></li>
