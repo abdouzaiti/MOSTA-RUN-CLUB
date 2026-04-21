@@ -470,7 +470,7 @@ export default function App() {
 
       {/* Membership / CTA */}
       <section id="membership" className="py-32 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+        <div className="max-w-4xl mx-auto px-4 text-center relative z-10 bg-white/40 dark:bg-transparent backdrop-blur-sm py-16 rounded-[3rem] shadow-2xl border border-white/20">
           <h2 className="text-5xl md:text-6xl font-black text-black dark:text-white mb-8">{t('membership.title')}</h2>
           <p className="text-black dark:text-gray-400 text-xl mb-12 leading-relaxed">
             {t('membership.desc')}
@@ -491,7 +491,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-20 border-t border-gray-100 dark:border-white/5">
+      <footer className="py-20 border-t border-gray-100 dark:border-white/5 bg-white/30 dark:bg-transparent backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 ${isRTL ? 'text-center md:text-right' : 'text-center md:text-left'}`}>
             <div className={`col-span-1 md:col-span-2 flex flex-col items-center ${isRTL ? 'md:items-end' : 'md:items-start'}`}>
