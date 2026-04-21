@@ -295,6 +295,7 @@ export default function App() {
             <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-wider">
               <a href="#about" className={`${isDarkMode ? 'text-gray-300' : 'text-black'} hover:text-brand-blue transition-colors dark:hover:text-brand-blue`}>{t('nav.about')}</a>
               <a href="#schedule" className={`${isDarkMode ? 'text-gray-300' : 'text-black'} hover:text-brand-blue transition-colors dark:hover:text-brand-blue`}>{t('nav.schedule')}</a>
+              <a href="#our-story" className={`${isDarkMode ? 'text-gray-300' : 'text-black'} hover:text-brand-blue transition-colors dark:hover:text-brand-blue`}>{t('nav.story')}</a>
               <a href="#membership" className={`${isDarkMode ? 'text-gray-300' : 'text-black'} hover:text-brand-blue transition-colors dark:hover:text-brand-blue`}>{t('nav.membership')}</a>
               
               <select 
@@ -450,6 +451,113 @@ export default function App() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story / Photo Albums */}
+      <section id="our-story" className={`py-32 ${isDarkMode ? 'bg-black/20' : 'bg-gray-50/50'} border-y ${isDarkMode ? 'border-white/5' : 'border-black/5'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className={isRTL ? 'text-right' : 'text-left'}>
+              <h2 className={`text-4xl font-black ${isDarkMode ? 'text-white' : 'text-black'} mb-4`}>{t('story.title')}</h2>
+              <p className={`${isDarkMode ? 'text-gray-400' : 'text-black/70'} max-w-xl`}>{t('story.desc')}</p>
+            </div>
+          </div>
+
+          {/* Cover Photo */}
+          <div className="mb-24">
+            <div className={`relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[16/9] md:aspect-[21/9] w-full ${isDarkMode ? 'border border-white/10' : 'border border-black/5'}`}>
+              <img 
+                src="/cover.jpg" 
+                alt="Mosta Run Club Cover" 
+                onError={(e) => { e.currentTarget.src = "https://picsum.photos/seed/mostacover/1600/900"; }}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end">
+                <div className={`p-8 md:p-12 ${isRTL ? 'text-right w-full' : 'text-left'}`}>
+                  <h3 className="text-3xl md:text-5xl font-black text-white mb-3 tracking-wide">Mosta Run Club</h3>
+                  <p className="text-white/80 text-lg font-medium">Running together, growing together.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Album Masonry Galleries */}
+          <div className="space-y-32">
+            
+            {/* Bejaia Album */}
+            <div className={isRTL ? "text-right" : "text-left"}>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue">
+                  <span className="font-black text-xl">1</span>
+                </div>
+                <h3 className={`text-2xl font-black ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                  {t('story.albums.bejaia')}
+                </h3>
+              </div>
+              <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div key={`bejaia-${i}`} className={`relative rounded-2xl overflow-hidden break-inside-avoid shadow-lg group ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white border border-black/5'}`}>
+                    <img 
+                      src={`https://picsum.photos/seed/bejaia${i}/600/${600 + i * 50}`} 
+                      alt={`Bejaia ${i}`} 
+                      className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-brand-blue/0 group-hover:bg-brand-blue/20 transition-colors duration-300" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Alger Album */}
+            <div className={isRTL ? "text-right" : "text-left"}>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue">
+                  <span className="font-black text-xl">2</span>
+                </div>
+                <h3 className={`text-2xl font-black ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                  {t('story.albums.alger')}
+                </h3>
+              </div>
+              <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={`alger-${i}`} className={`relative rounded-2xl overflow-hidden break-inside-avoid shadow-lg group ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white border border-black/5'}`}>
+                    <img 
+                      src={`https://picsum.photos/seed/alger${i}/600/${700 - i * 30}`} 
+                      alt={`Alger ${i}`} 
+                      className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-brand-blue/0 group-hover:bg-brand-blue/20 transition-colors duration-300" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Backyard Ultra Album */}
+            <div className={isRTL ? "text-right" : "text-left"}>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue">
+                  <span className="font-black text-xl">3</span>
+                </div>
+                <h3 className={`text-2xl font-black ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                  {t('story.albums.backyard')}
+                </h3>
+              </div>
+              <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={`backyard-${i}`} className={`relative rounded-2xl overflow-hidden break-inside-avoid shadow-lg group ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white border border-black/5'}`}>
+                    <img 
+                      src={`https://picsum.photos/seed/backyard${i}/600/${500 + (i % 3) * 150}`} 
+                      alt={`Backyard Ultra ${i}`} 
+                      className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-brand-blue/0 group-hover:bg-brand-blue/20 transition-colors duration-300" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

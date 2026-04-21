@@ -9,7 +9,8 @@ const resources = {
         about: 'À propos',
         schedule: 'Programme',
         membership: 'Adhésion',
-        join: 'Rejoindre'
+        join: 'Rejoindre',
+        story: 'Notre Histoire'
       },
       hero: {
         badge: 'Prochaine course : Mardi 18:00',
@@ -53,6 +54,15 @@ const resources = {
           }
         }
       },
+      story: {
+        title: 'Notre Histoire',
+        desc: 'Découvrez les moments forts de nos aventures, du bitume de Béjaïa aux sentiers du Backyard Ultra.',
+        albums: {
+          bejaia: 'Semi Marathon Ville de Béjaïa',
+          alger: "Semi Marathon d'Alger",
+          backyard: 'Backyard Ultra'
+        }
+      },
       membership: {
         title: 'Prêt à fouler le pavé ?',
         desc: 'Rejoignez plus de 250 coureurs aujourd\'hui. L\'adhésion est gratuite, l\'ambiance est inestimable. Accédez à notre groupe WhatsApp et à des événements exclusifs.',
@@ -73,7 +83,8 @@ const resources = {
         about: 'حول النادي',
         schedule: 'البرنامج',
         membership: 'العضوية',
-        join: 'انضم إلينا'
+        join: 'انضم إلينا',
+        story: 'قصتنا'
       },
       hero: {
         badge: 'الجري القادم: الثلاثاء 18:00',
@@ -111,6 +122,15 @@ const resources = {
           }
         }
       },
+      story: {
+        title: 'قصتنا',
+        desc: 'اكتشف أبرز لحظات مغامراتنا، من شوارع بجاية إلى مسارات باك يارد ألترا.',
+        albums: {
+          bejaia: 'نصف ماراثون مدينة بجاية',
+          alger: 'نصف ماراثون الجزائر',
+          backyard: 'باك يارد ألترا'
+        }
+      },
       membership: {
         title: 'هل أنت مستعد للجري؟',
         desc: 'انضم إلى أكثر من 250 عداء اليوم. العضوية مجانية، والأجواء لا تقدر بثمن. احصل على وصول إلى مجموعة WhatsApp وفعاليات حصرية.',
@@ -131,7 +151,8 @@ const resources = {
         about: 'About',
         schedule: 'Schedule',
         membership: 'Membership',
-        join: 'Join Now'
+        join: 'Join Now',
+        story: 'Our Story'
       },
       hero: {
         badge: 'Next Run: Tuesday 18:00',
@@ -167,6 +188,15 @@ const resources = {
             location: 'Complexe Raid Farradj',
             date: 'Sunday'
           }
+        }
+      },
+      story: {
+        title: 'Our Story',
+        desc: 'Discover the highlights of our journey, from the streets of Bejaia to the trails of the Backyard Ultra.',
+        albums: {
+          bejaia: 'Bejaia City Half Marathon',
+          alger: 'Algiers Half Marathon',
+          backyard: 'Backyard Ultra'
         }
       },
       membership: {
