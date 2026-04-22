@@ -569,9 +569,9 @@ export default function App() {
                       {t('hero.ctaStart')} <ArrowRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
                     </span>
                   </button>
-                  <button className="cssbuttons-io cssbuttons-io--outline">
+                  <a href="#schedule" className="cssbuttons-io cssbuttons-io--outline">
                     <span>{t('hero.ctaSchedule')}</span>
-                  </button>
+                  </a>
                 </motion.div>
             </motion.div>
             
@@ -588,9 +588,6 @@ export default function App() {
               <h2 className={`text-4xl font-black ${isDarkMode ? 'text-white' : 'text-black'} mb-4`}>{t('schedule.title')}</h2>
               <p className={`${isDarkMode ? 'text-gray-400' : 'text-black/70'} max-w-md`}>{t('schedule.desc')}</p>
             </div>
-            <button className="text-brand-blue font-bold flex items-center gap-2 hover:gap-3 transition-all">
-              {t('schedule.fullCalendar')} <ChevronRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
-            </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
