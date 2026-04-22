@@ -81,6 +81,7 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showMain, setShowMain] = useState(false);
+  const [showRules, setShowRules] = useState(false);
   const [currentView, setCurrentView] = useState<'home' | 'albums' | 'gallery'>('home');
   const [selectedAlbum, setSelectedAlbum] = useState<'bejaia' | 'alger' | 'backyard' | null>(null);
   const [isRising, setIsRising] = useState(false);
@@ -325,8 +326,7 @@ export default function App() {
                   >
                     <button
                       onClick={() => {
-                        setIsRising(true);
-                        setShowMain(true);
+                        setShowRules(true);
                       }}
                       className="pointer-events-auto cssbuttons-io"
                     >
@@ -349,6 +349,68 @@ export default function App() {
                 Skip Intro
               </button>
             )}
+          </motion.section>
+        )}
+
+        {/* Internal Rules View */}
+        {showRules && !showMain && (
+          <motion.section
+            key="rules"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[110] bg-white dark:bg-black overflow-y-auto"
+          >
+            <div className="max-w-4xl mx-auto px-4 py-20 text-center">
+              <motion.h1 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`text-4xl md:text-5xl font-black ${isDarkMode ? 'text-white' : 'text-black'} mb-12`}
+              >
+                {t('rules.title')}
+              </motion.h1>
+
+              <div className="space-y-8 mb-16">
+                {[1, 2].map((num) => (
+                  <motion.div 
+                    key={num}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: num * 0.2 }}
+                    className={`rounded-3xl overflow-hidden shadow-2xl border ${isDarkMode ? 'border-white/10' : 'border-black/5'}`}
+                  >
+                    <img 
+                      src={`/law/law${num}.jpg`} 
+                      alt={`Law page ${num}`}
+                      className="w-full h-auto"
+                      onError={(e) => { e.currentTarget.src = `https://picsum.photos/seed/law${num}/800/1200`; }}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <button 
+                  onClick={() => window.print()}
+                  className="cssbuttons-io cssbuttons-io--outline"
+                >
+                  <span className="flex items-center gap-2">
+                    {t('rules.download')}
+                  </span>
+                </button>
+
+                <button 
+                  onClick={() => {
+                    setShowRules(false);
+                    setIsRising(true);
+                    setShowMain(true);
+                  }}
+                  className="cssbuttons-io"
+                >
+                  <span>{t('rules.accept')}</span>
+                </button>
+              </div>
+            </div>
           </motion.section>
         )}
 

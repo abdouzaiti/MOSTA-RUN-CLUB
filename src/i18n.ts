@@ -6,11 +6,17 @@ const resources = {
   fr: {
     translation: {
       nav: {
-        about: 'À propos',
+        about: 'À Propos',
         schedule: 'Programme',
         membership: 'Adhésion',
         join: 'Rejoindre',
-        story: 'Notre Histoire'
+        story: 'Notre Histoire',
+        visit: 'Visiter notre website'
+      },
+      rules: {
+        title: 'القانون الداخلي | Règlement Intérieur',
+        download: 'Télécharger le PDF',
+        accept: 'J\'ai lu et j\'accepte',
       },
       hero: {
         badge: 'Prochaine course : Mardi 18:00',
@@ -86,7 +92,13 @@ const resources = {
         schedule: 'البرنامج',
         membership: 'العضوية',
         join: 'انضم إلينا',
-        story: 'قصتنا'
+        story: 'قصتنا',
+        visit: 'زيارة موقعنا'
+      },
+      rules: {
+        title: 'القانون الداخلي',
+        download: 'تحميل القانون',
+        accept: 'قرأت وأوافق',
       },
       hero: {
         badge: 'الجري القادم: الثلاثاء 18:00',
@@ -155,8 +167,14 @@ const resources = {
         about: 'About',
         schedule: 'Schedule',
         membership: 'Membership',
-        join: 'Join Now',
-        story: 'Our Story'
+        join: 'Join Us',
+        story: 'Our Story',
+        visit: 'Visit our website'
+      },
+      rules: {
+        title: 'Internal Rules | القانون الداخلي',
+        download: 'Download PDF',
+        accept: 'I have read and agree',
       },
       hero: {
         badge: 'Next Run: Tuesday 18:00',
