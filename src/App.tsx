@@ -20,7 +20,8 @@ import {
   Clock,
   Trophy,
   Sun,
-  Moon
+  Moon,
+  Image as ImageIcon
 } from 'lucide-react';
 import { RunEvent, ClubStat } from './types';
 
@@ -654,18 +655,48 @@ export default function App() {
         >
           <h2 className={`text-4xl md:text-5xl font-black ${isDarkMode ? 'text-white' : 'text-black'} mb-12 tracking-widest uppercase`}>MOSTA RUN CLUB</h2>
           
-          <div className={`relative w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl mb-12 ${isDarkMode ? 'border border-white/10' : 'border border-black/5'}`}>
+          <div className={`group relative w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl mb-12 ${isDarkMode ? 'border border-white/10' : 'border border-black/5'} cursor-pointer`} onClick={() => setCurrentView('albums')}>
             <img 
               src="/cover.jpg" 
               alt="Mosta Run Club Cover"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               onError={(e) => { e.currentTarget.src = "https://picsum.photos/seed/mostacover/600/800"; }} 
             />
+            {/* Hover Overlay */}
+            <div className="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4">
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center"
+              >
+                <ImageIcon className="w-8 h-8 text-white" />
+              </motion.div>
+              <span className="text-white font-black uppercase tracking-widest text-sm">
+                {i18n.language === 'ar' ? 'عرض الألبومات' : i18n.language === 'fr' ? "Voir les albums" : "View Albums"}
+              </span>
+            </div>
           </div>
 
-          <button onClick={() => setCurrentView('albums')} className="cssbuttons-io hover:scale-105 transition-transform duration-300">
+          <motion.button 
+            onClick={() => setCurrentView('albums')} 
+            animate={{ 
+              scale: [1, 1.05, 1],
+              boxShadow: [
+                "0 4px 20px rgba(0, 163, 255, 0.2)",
+                "0 4px 30px rgba(0, 163, 255, 0.5)",
+                "0 4px 20px rgba(0, 163, 255, 0.2)"
+              ]
+            }}
+            transition={{ 
+              duration: 2, 
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="cssbuttons-io hover:scale-105 transition-transform duration-300"
+          >
             <span>{t('story.trigger')}</span>
-          </button>
+          </motion.button>
         </motion.div>
       </section>
 
