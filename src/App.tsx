@@ -663,39 +663,56 @@ export default function App() {
               onError={(e) => { e.currentTarget.src = "https://picsum.photos/seed/mostacover/600/800"; }} 
             />
             {/* Hover Overlay */}
-            <div className="absolute inset-0 bg-brand-blue/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4">
+            <div className={`absolute inset-0 bg-gradient-to-t from-brand-blue/80 via-brand-blue/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center gap-4 backdrop-blur-[2px]`}>
               <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
+                initial={{ y: 20, opacity: 0 }}
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                animate={{ 
+                  y: [20, 0],
+                  opacity: [0, 1]
+                }}
                 transition={{ type: "spring", stiffness: 200 }}
-                className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center"
+                className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center shadow-2xl"
               >
                 <ImageIcon className="w-8 h-8 text-white" />
               </motion.div>
-              <span className="text-white font-black uppercase tracking-widest text-sm">
+              <motion.span 
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.1 }}
+                className="text-white font-black uppercase tracking-[0.2em] text-sm drop-shadow-lg"
+              >
                 {i18n.language === 'ar' ? 'عرض الألبومات' : i18n.language === 'fr' ? "Voir les albums" : "View Albums"}
-              </span>
+              </motion.span>
             </div>
           </div>
 
           <motion.button 
             onClick={() => setCurrentView('albums')} 
             animate={{ 
-              scale: [1, 1.05, 1],
+              scale: [1, 1.03, 1],
               boxShadow: [
-                "0 4px 20px rgba(0, 163, 255, 0.2)",
-                "0 4px 30px rgba(0, 163, 255, 0.5)",
-                "0 4px 20px rgba(0, 163, 255, 0.2)"
+                "0 4px 20px rgba(0, 163, 255, 0.15)",
+                "0 4px 35px rgba(0, 163, 255, 0.4)",
+                "0 4px 20px rgba(0, 163, 255, 0.15)"
               ]
             }}
+            whileHover={{ 
+              scale: 1.1,
+              backgroundColor: "var(--color-brand-blue)",
+              color: "white"
+            }}
             transition={{ 
-              duration: 2, 
+              duration: 3, 
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="cssbuttons-io hover:scale-105 transition-transform duration-300"
+            className="cssbuttons-io group transition-all duration-300"
           >
-            <span>{t('story.trigger')}</span>
+            <span className="flex items-center gap-3">
+              {t('story.trigger')}
+              <ArrowRight className={`w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 ${isRTL ? 'rotate-180 group-hover:-translate-x-1' : ''}`} />
+            </span>
           </motion.button>
         </motion.div>
       </section>
