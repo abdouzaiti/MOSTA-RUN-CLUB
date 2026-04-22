@@ -514,13 +514,13 @@ export default function App() {
       {/* Hero Section */}
       <section className="relative pt-28 pb-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-3xl mx-auto text-center">
             <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full ${isDarkMode ? 'bg-brand-blue/20' : 'bg-brand-blue/10'} text-brand-blue text-xs font-bold uppercase tracking-wider mb-6`}>
+              <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full ${isDarkMode ? 'bg-brand-blue/20' : 'bg-brand-blue/10'} text-brand-blue text-xs font-bold uppercase tracking-wider mb-6 mx-auto`}>
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
@@ -550,33 +550,7 @@ export default function App() {
                 </motion.div>
             </motion.div>
             
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
-                <img 
-                  src="https://picsum.photos/seed/running/800/1000" 
-                  alt="Runners in Mosta" 
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div className={`absolute -bottom-6 -left-6 ${isDarkMode ? 'bg-gray-900 border border-white/10' : 'bg-white border border-black/5'} p-6 rounded-2xl shadow-xl max-w-[200px]`}>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 bg-blue-100 dark:bg-brand-blue/20 rounded-full flex items-center justify-center">
-                    <Trophy className="text-brand-blue w-5 h-5" />
-                  </div>
-                  <div className={`text-xs font-bold ${isDarkMode ? 'text-gray-400' : 'text-black/50'} uppercase`}>Weekly Goal</div>
-                </div>
-                <div className={`text-2xl font-black ${isDarkMode ? 'text-white' : 'text-black'}`}>2,500 KM</div>
-                <div className={`w-full ${isDarkMode ? 'bg-white/10' : 'bg-gray-100'} h-2 rounded-full mt-3`}>
-                  <div className="bg-brand-blue h-full rounded-full w-[75%] transition-all" />
-                </div>
-              </div>
-            </motion.div>
+
           </div>
         </div>
       </section>
