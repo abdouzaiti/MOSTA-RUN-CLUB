@@ -115,3 +115,56 @@
     font-size: 12px;
   }
 }
+
+/* ── Print Styles ── */
+@media print {
+  .print-hidden {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Reset fixed positioning for print */
+  .fixed {
+    position: relative !important;
+    inset: 0 !important;
+    z-index: auto !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  .overflow-y-auto {
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  /* Maximize space for rules images */
+  .max-w-4xl {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .py-20 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  img {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    width: 100% !important;
+    height: auto !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Force each image onto a potential new page if needed */
+  .space-y-8 > *:not(:last-child) {
+    page-break-after: always;
+    break-after: page;
+  }
+}

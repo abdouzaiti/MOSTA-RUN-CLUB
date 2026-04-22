@@ -376,7 +376,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                className="flex flex-col items-center gap-2 mb-10"
+                className="flex flex-col items-center gap-2 mb-10 print-hidden"
               >
                 <motion.p
                   animate={{ opacity: [0.5, 1, 0.5] }}
@@ -415,7 +415,7 @@ export default function App() {
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center print-hidden">
                 <button 
                   onClick={() => window.print()}
                   className="cssbuttons-io cssbuttons-io--outline"
