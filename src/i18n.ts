@@ -17,6 +17,7 @@ const resources = {
         title: 'القانون الداخلي | Règlement Intérieur',
         download: 'Télécharger le PDF',
         accept: 'J\'ai lu et j\'accepte',
+        scrollHint: '↓ Faites défiler pour lire ↓'
       },
       hero: {
         badge: 'Prochaine course : Mardi 18:00',
@@ -99,6 +100,7 @@ const resources = {
         title: 'القانون الداخلي',
         download: 'تحميل القانون',
         accept: 'قرأت وأوافق',
+        scrollHint: '↓ مرر للأسفل للقراءة ↓'
       },
       hero: {
         badge: 'الجري القادم: الثلاثاء 18:00',
@@ -175,6 +177,7 @@ const resources = {
         title: 'Internal Rules | القانون الداخلي',
         download: 'Download PDF',
         accept: 'I have read and agree',
+        scrollHint: '↓ Scroll down to read ↓'
       },
       hero: {
         badge: 'Next Run: Tuesday 18:00',

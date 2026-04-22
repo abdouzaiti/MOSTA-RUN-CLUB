@@ -382,7 +382,7 @@ export default function App() {
                   transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
                   className={`text-sm font-semibold tracking-widest uppercase ${isDarkMode ? 'text-brand-blue/80' : 'text-brand-blue'}`}
                 >
-                  {i18n.language === 'ar' ? '↓ مرر للأسفل للقراءة ↓' : i18n.language === 'fr' ? '↓ Faites défiler pour lire ↓' : '↓ Scroll down to read ↓'}
+                  {t('rules.scrollHint')}
                 </motion.p>
                 <motion.div
                   animate={{ y: [0, 8, 0] }}
