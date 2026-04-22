@@ -241,7 +241,7 @@ export default function App() {
     <div className={`min-h-screen flex flex-col transition-colors duration-300 ${isDarkMode ? 'dark bg-black text-white' : 'bg-white text-black'}`}>
       <AnimatePresence>
         {/* Splash Screen / Video & Logo Animation */}
-        {!showMain && (
+        {!showMain && !showRules && (
           <motion.section 
             key="splash"
             initial={{ opacity: 1 }}
@@ -360,9 +360,11 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[110] bg-white dark:bg-black overflow-y-auto"
+            className="fixed inset-0 z-[110] bg-white dark:bg-black flex flex-col pt-10"
           >
-            <div className="max-w-4xl mx-auto px-4 py-20 text-center">
+            {/* Scrollable Content Container */}
+            <div className="flex-1 overflow-y-auto custom-scrollbar pt-10 pb-10">
+              <div className="max-w-4xl mx-auto px-4 text-center">
               <motion.h1 
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -414,30 +416,34 @@ export default function App() {
                   </motion.div>
                 ))}
               </div>
-
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center print-hidden">
-                <button 
-                  onClick={() => window.print()}
-                  className="cssbuttons-io cssbuttons-io--outline"
-                >
-                  <span className="flex items-center gap-2">
-                    {t('rules.download')}
-                  </span>
-                </button>
-
-                <button 
-                  onClick={() => {
-                    setShowRules(false);
-                    setIsRising(true);
-                    setShowMain(true);
-                  }}
-                  className="cssbuttons-io"
-                >
-                  <span>{t('rules.accept')}</span>
-                </button>
-              </div>
             </div>
-          </motion.section>
+          </div>
+
+          {/* Sticky Action Footer */}
+          <div className={`sticky bottom-0 w-full py-8 px-4 border-t ${isDarkMode ? 'bg-black/90 border-white/10' : 'bg-white/90 border-black/5'} backdrop-blur-xl z-20 print-hidden mt-auto`}>
+            <div className="max-w-4xl mx-auto flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <button 
+                onClick={() => window.print()}
+                className="cssbuttons-io cssbuttons-io--outline"
+              >
+                <span className="flex items-center gap-2">
+                  {t('rules.download')}
+                </span>
+              </button>
+
+              <button 
+                onClick={() => {
+                  setShowRules(false);
+                  setIsRising(true);
+                  setShowMain(true);
+                }}
+                className="cssbuttons-io"
+              >
+                <span>{t('rules.accept')}</span>
+              </button>
+            </div>
+          </div>
+        </motion.section>
         )}
 
         {/* Main Content */}
