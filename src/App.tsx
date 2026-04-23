@@ -366,7 +366,7 @@ export default function App() {
               <motion.h1 
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className={`text-4xl md:text-5xl font-black ${isDarkMode ? 'text-white' : 'text-black'} mb-6`}
+                className={`text-4xl md:text-5xl font-black ${isDarkMode ? 'text-white' : 'text-black'} mb-6 print-hidden`}
               >
                 {t('rules.title')}
               </motion.h1>
