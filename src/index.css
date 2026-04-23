@@ -153,18 +153,23 @@
     padding-bottom: 0 !important;
   }
 
+  .mb-16, .mb-10, .space-y-8 {
+    margin-bottom: 0 !important;
+  }
+
   img {
     break-inside: avoid;
-    margin-bottom: 20px;
+    margin: 0 !important;
     width: 100% !important;
     height: auto !important;
     box-shadow: none !important;
     border: none !important;
   }
 
-  /* Force each image onto a potential new page if needed */
+  /* Force only the first image onto a new page */
   .space-y-8 > *:not(:last-child) {
     page-break-after: always;
     break-after: page;
+    margin-bottom: 0 !important;
   }
 }
